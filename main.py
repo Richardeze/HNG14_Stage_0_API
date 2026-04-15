@@ -50,7 +50,7 @@ def classify_name():
     if gender is None or count == 0:
         return jsonify({
             "status": "error",
-            "message": "No prediction available for the following name"
+            "message": "No prediction available for the provided name"
         }), 422
 
     sample_size = count
@@ -64,7 +64,7 @@ def classify_name():
     return jsonify({
         "status": "success",
         "data": {
-            "name": name,
+            "name": name.lower(),
             "gender": gender,
             "probability": probability,
             "sample_size": sample_size,
@@ -74,4 +74,4 @@ def classify_name():
     }), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
