@@ -61,7 +61,7 @@ def classify_name():
         probability >= 0.7 and sample_size >= 100
     )
 
-    processed_at = datetime.now(timezone.utc).isoformat()
+    processed_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
     return jsonify({
         "status": "success",
